@@ -1,1 +1,70 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    background-color: wheat;
+    margin: auto;
+}
+
+main{
+    background-color: darkslategray;
+    color : white;
+    padding-top: 5px;
+    display: flex;
+    flex-direction: column;
+    /* width: 80%; */
+    
+}
+
+h2,h3{
+    text-align: center;
+}
+
+.formZone{
+    padding-top: 10px;
+    background-color: dimgrey;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form label {
+    width: 300px;
+    display: inline-block;
+}
+
+form label {
+    width: 100px;
+    display: inline-block;
+}
+
+
+
+
+.aliment-list{
+    padding-top: 10px;
+    background-color: dimgrey;
+}
+
+#sort-button {
+    text-align: center;
+}
+
+table{
+    margin: auto;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+td, th {
+    border: 1px solid white;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+th{
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+#nom-aliment {
+    text-align: left;
+}

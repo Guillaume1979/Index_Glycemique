@@ -1,0 +1,26 @@
+
+h1 {
+    text-align: center;
+    font-style: oblique;
+    padding-top: 30px;
+}
+
+nav {
+    background-color: sandybrown;
+}
+
+ul {
+    display: flex;
+    justify-content: space-around;
+    padding: 15px 0px 15px 0px;
+}
+
+li {
+    list-style: none;
+    font-weight: bold;
+}
+
+a {
+    text-decoration: none;
+    color : white;
+}

@@ -1,0 +1,54 @@
+
+  <h2 id="list-aliment">Liste des aliments</h2>
+
+  <div class="formZone">
+
+    <h3>Formulaire d'ajout</h3>
+
+    <form class="form" [formGroup]='addAlimentForm' (ngSubmit)="onSubmit(addAlimentForm.value)">
+      <div>
+        <label for="alimentName">Nom de l'aliment</label>
+        <input type="text" placeholder="Saisir le nom de l'aliment" id="alimentName" formControlName="name">
+      </div>
+      <div>
+        <label for="ig">Index glycémique</label>
+        <input type="number" placeholder="0" id="ig" formControlName="ig">
+      </div>
+      <div>
+        <label for="taux">Proportion de glucides</label>
+        <input type="number" placeholder="0" id="taux" formControlName="carbs">
+      </div>
+
+      <button class="button" type="submit">Ajouter l'aliment</button>
+    </form>
+
+  </div>
+
+  <div class="aliment-list">
+    <h3>Liste des aliments enregistrés</h3>
+
+    <!-- <form class="sort-button" [formGroup]='alimentsList'> -->
+      <select id="sort-button" (select)='sortBy()'>
+        <option [value]="">Trier par</option>
+        <option [value]="name">Nom de l'aliment</option>
+        <option value="ig">Index glycémique</option>
+        <option value="carbs">Taux de glucides</option>
+      </select>
+    <!-- </form> -->
+
+    <table>
+      <tr>
+        <th>Nom de l'aliment</th>
+        <th>Index glycémique</th>
+        <th>Proportion de glucides (g/100g)</th>
+        <th>Supprimer</th>
+      </tr>
+      <tr *ngFor="let aliment of alimentsList; index as indexId">
+        <td id="nom-aliment">{{aliment.name}}</td>
+        <td>{{aliment.ig}}</td>
+        <td>{{aliment.carbs}}</td>
+        <td><button (click)='supprAliment(indexId)'>X</button></td>
+      </tr>
+    </table>
+  </div>
+
