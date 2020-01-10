@@ -8,7 +8,7 @@ export class PortionService {
 
   portionList:CalculatedData[]=[];
 
-  chargeTotale:number;
+  chargeTotale:number=0;
 
   constructor() {
    }

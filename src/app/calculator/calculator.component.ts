@@ -39,7 +39,7 @@ export class CalculatorComponent implements OnInit {
       data.carbsProportion = this.portionService.calculationCarbs(formValue.weight,formValue.aliment.carbs);
       data.glycemicIndex = this.portionService.calculationGlycemicIndex(formValue.aliment.ig,data.carbsProportion);
       this.portionList.push(data);
-      this.totalChargeCalc(data.glycemicIndex);
+      this.totalChargeCalc(data.glycemicIndex,'add');
 
       this.clearForm();
     }
@@ -53,16 +53,20 @@ export class CalculatorComponent implements OnInit {
   }
 
   supprPortion(index) {
+    this.totalChargeCalc(this.portionList[index].glycemicIndex,'suppr');
     if (index!=-1){
     this.portionList.splice(index,1);
     }
   }
 
-  totalChargeCalc(glycemicIndex){
-    if (!this.totalCharge){
-      this.totalCharge=0;
+  totalChargeCalc(glycemicIndex,addOrSupprOrder){
+    if (addOrSupprOrder=='add'){
+    this.totalCharge+=glycemicIndex;
+    this.portionService.chargeTotale = this.totalCharge;
+    } else if (addOrSupprOrder=='suppr'){
+      this.totalCharge-=glycemicIndex;
+    this.portionService.chargeTotale = this.totalCharge;
     }
-    this.totalCharge+=glycemicIndex;     
   }
   
 
